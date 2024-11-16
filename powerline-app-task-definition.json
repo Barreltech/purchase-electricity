@@ -2,14 +2,14 @@
     "taskDefinitionArn": "arn:aws:ecs:eu-north-1:702653091650:task-definition/buypowerreal-task-definition:1",
     "containerDefinitions": [
         {
-            "name": "validatemeterreal",
-            "image": "702653091650.dkr.ecr.eu-north-1.amazonaws.com/validate-meter-number:15c608c104459d3b049fce0e6be57862b583d140",
+            "name": "purchase-electricity",
+            "image": "702653091650.dkr.ecr.eu-north-1.amazonaws.com/purchase-electricity:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "validatemeterreal-8084-tcp",
-                    "containerPort": 8084,
-                    "hostPort": 8084,
+                    "name": "purchase-power-8081-tcp",
+                    "containerPort": 8081,
+                    "hostPort": 8081,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/buypowerreal-task-definition",
+                    "awslogs-group": "/ecs/purchase-power-task-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,7 +35,7 @@
             "systemControls": []
         }
     ],
-    "family": "buypowerreal-task-definition",
+    "family": "purchase-electricity-task-definition",
     "taskRoleArn": "arn:aws:iam::702653091650:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::702653091650:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
